@@ -1,0 +1,23 @@
+#form {
+    padding: 5px;
+    display: flex;
+    margin: 100px auto 40px auto;
+    background-color: white;
+    box-shadow: 4px 5px 16px -6px #000000;
+    max-width: 40%;
+}
+
+#form > * {
+    flex: 1;
+}
+
+#form input {width: 120px}
+
+list {
+    padding: 5px;
+    background-color: white;
+    box-shadow: 4px 5px 16px -6px #000000;
+    max-width: 40%;
+    display: block;
+    margin: 0 auto;
+}

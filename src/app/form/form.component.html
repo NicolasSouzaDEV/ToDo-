@@ -1,0 +1,9 @@
+<div id="form">
+    <div><label for="name" >Título</label><input [(ngModel)] = "this.formInput.name" type="text" id="name"></div>
+    <div><label for="desc">Descrição</label><input [(ngModel)] = "this.formInput.desc" type="text" id="desc"></div>
+    <div><label for="date">Data</label><input [(ngModel)] = "this.formInput.date" type="date" id="date"></div>
+    <button (click) = "addTask()">Enviar</button>
+</div>
+
+<list [taskList] = 'taskList'></list>
+

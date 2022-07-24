@@ -1,0 +1,19 @@
+<p *ngIf = "taskList.length == 0">Nenhuma tarefa adicionada</p>
+<div *ngFor = 'let task of taskList' id="taskElement" [ngStyle] = "{
+'opacity': task.check ? '50%' : '100%'}">
+    <table>
+        <tr>
+            <td>
+                <input type="checkbox"  [(ngModel)] = 'task.check' (change)="saveLocal()">
+                <span id="tasktitle" [ngStyle] = "{'textDecoration': task.check ? 'line-through' : 'none'}">{{task.name}}</span><span id="taskdate">{{task.date}}</span>
+                <p id="taskdesc" [ngStyle] = "{'textDecoration': task.check ? 'line-through' : 'none'}">{{task.desc}}</p>
+            </td>
+            <td><img src="../../assets/excluir.png" id="deleteTask" (click)="deleteTask(taskList.indexOf(task))"></td>
+            
+        </tr>
+    </table>
+    <hr>
+</div>
+
+
+
