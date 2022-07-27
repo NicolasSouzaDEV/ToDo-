@@ -1,4 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { formInput } from '../interface/form-input';
+import { TaskShareService } from './task-share.service';
 
 @Component({
   selector: 'form',
@@ -7,15 +9,15 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  formInput: any = {
+  formInput: formInput = {
     name: "",
     desc: "",
     date: "",
     check: false
-
   }
 
-  taskList: any[] = []
+  taskList: {}[] = []
+  
 
   addTask(){
     if (!Object.values(this.formInput).every(value => value !== "")){
@@ -23,16 +25,19 @@ export class FormComponent implements OnInit {
       
       this.taskList.push({...this.formInput});
       localStorage.setItem('taskList', JSON.stringify(this.taskList))
+      this.taskShare.taskShareEvent.emit(this.taskList)
     }
   }
 
-  constructor() { }
+  constructor(private taskShare: TaskShareService) {
+  }
 
   ngOnInit(): void {
     let saveTaskList = localStorage.getItem("taskList")
     if (saveTaskList == null) {
       console.log("Nenhum save encontrado")
-    } else {this.taskList = JSON.parse(saveTaskList)}
+    } else {this.taskList = JSON.parse(saveTaskList);
+    this.taskShare.taskShareEvent.emit(this.taskList)}
   }
 
 }

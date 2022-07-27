@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TaskShareService } from '../form/task-share.service';
 
 @Component({
   selector: 'list',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  @Input() taskList:any[] = []
+  taskList:any[] = []
 
   saveLocal() {
     localStorage.setItem('taskList', JSON.stringify(this.taskList))
@@ -18,7 +19,7 @@ export class ListComponent implements OnInit {
     this.saveLocal()
   }
 
-  constructor() { }
+  constructor(private taskShare: TaskShareService) {taskShare.taskShareEvent.subscribe(taskList => this.taskList = taskList)}
 
   ngOnInit(): void {
     
