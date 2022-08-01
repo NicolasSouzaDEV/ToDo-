@@ -1,0 +1,8 @@
+<form (ngSubmit)="updateTask()" id="form">
+    <div>{{this.id + 1}}</div>
+    <div><label for="name" >Nome</label><input class="form-control" [(ngModel)] = "this.taskNewObject.name"  name="name" type="text" id="name" placeholder="Nome para a tarefa" maxlength="32"></div>
+    <div><label for="desc">Descrição</label><input class="form-control" [(ngModel)] = "this.taskNewObject.desc" name="desc" type="text" id="desc" placeholder="Descrição para a tarefa" maxlength="45"></div>
+    <div><label for="date">Data</label><input class="form-control" [(ngModel)] = "this.taskNewObject.date" name="date" type="date" id="date"></div>
+    <button type="submit" class="btn btn-primary" routerLink="">Salvar</button>
+</form>
+

@@ -1,19 +1,40 @@
-<p *ngIf = "taskList.length == 0">Nenhuma tarefa adicionada</p>
-<div *ngFor = 'let task of taskList' id="taskElement" [ngStyle] = "{
-'opacity': task.check ? '50%' : '100%'}">
-    <table>
-        <tr>
-            <td>
-                <input type="checkbox"  [(ngModel)] = 'task.check' (change)="saveLocal()">
-                <span id="tasktitle" [ngStyle] = "{'textDecoration': task.check ? 'line-through' : 'none'}">{{task.name}}</span><span id="taskdate">{{task.date | date: 'dd/MM/yyyy'}}</span>
-                <p id="taskdesc" [ngStyle] = "{'textDecoration': task.check ? 'line-through' : 'none'}">{{task.desc}}</p>
-            </td>
-            <td><img src="../../assets/excluir.png" id="deleteTask" (click)="deleteTask(taskList.indexOf(task))"></td>
-            
-        </tr>
-    </table>
-    <hr>
-</div>
+<p id="noTask" *ngIf="taskList.length == 0">Nenhuma tarefa adicionada</p>
+<table>
+  <tr
+    *ngFor="let task of taskList"
+    [ngStyle]="{
+      opacity: task.check ? '50%' : '100%'
+    }"
+  >
+    <td>
+      <input type="checkbox" [(ngModel)]="task.check" />
+      <span
+        id="tasktitle"
+        [ngStyle]="{ textDecoration: task.check ? 'line-through' : 'none' }"
+        >{{ task.name }}</span
+      ><span id="taskdate">{{ task.date | date: "dd/MM/yyyy" }}</span>
+      <p
+        id="taskdesc"
+        [ngStyle]="{ textDecoration: task.check ? 'line-through' : 'none' }"
+      >
+        {{ task.desc }}
+      </p>
+    </td>
 
-
-
+    <td id="functionBar">
+      <div>
+        <img
+          src="../../assets/editar.png"
+          class="functionButton"
+          [routerLink]="['edit', taskList.indexOf(task)]"
+        />
+        <img
+          src="../../assets/excluir.png"
+          class="functionButton"
+          id="deleteButton"
+          (click)="deleteTask(taskList.indexOf(task))"
+        />
+      </div>
+    </td>
+  </tr>
+</table>

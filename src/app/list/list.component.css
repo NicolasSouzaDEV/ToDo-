@@ -1,13 +1,27 @@
 #taskdate, #tasktitle {
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
-#deleteTask {
-    width: 30px;
+table, tr {
+    width: 100%
 }
 
-#deleteTask:hover {
+td{padding-top: 10px;}
+
+tr {
+    border-bottom: 1px solid gray;
+}
+
+#functionBar {
+    text-align: end
+}
+
+.functionButton {
     width: 30px;
+    margin-left: 5px;
+}
+
+.functionButton:hover {
     cursor: pointer;
 }
 
@@ -21,4 +35,8 @@
     background-color: rgb(221, 221, 221);
     border-left: 4px solid rgb(230, 0, 0);
     border-radius: 5px;;
+}
+
+#noTask {
+    text-align: center;
 }

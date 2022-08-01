@@ -1,0 +1,13 @@
+<form (ngSubmit)="addTask()" id="form">
+    <div><label for="name" >Nome</label><input class="form-control" [(ngModel)] = "this.formInput.name" name="name" type="text" id="name" placeholder="Nome para a tarefa" maxlength="32"></div>
+    <div><label for="desc">Descrição</label><input class="form-control" [(ngModel)] = "this.formInput.desc" name="desc" type="text" id="desc" placeholder="Descrição para a tarefa" maxlength="45"></div>
+    <div><label for="date">Data</label><input class="form-control" [(ngModel)] = "this.formInput.date" name="date" type="date" id="date"></div>
+    <button type="submit" class="btn btn-outline-primary">Enviar</button>
+</form>
+
+
+
+
+
+
+
